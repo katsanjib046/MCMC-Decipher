@@ -28,10 +28,24 @@ def main():
     """
     Main function.
     """
+    # check the number of arguments
+    if len(sys.argv) != 2:
+        print("Usage: python project.py <n_gram>")
+        sys.exit(1)
+    try:
+        n_gram = int(sys.argv[1])
+    except ValueError:
+        print("Usage: python project.py <n_gram>")
+        sys.exit(1)
 
     # Get input from the user
     # Get message to be encrypted
     message = input('Enter the message: ')
+    if len(message) == 0:
+        message = 'I am the king of the world'
+        message = message + ' '
+        message = message.lower()
+        message = message * 10
 
     # Get the key, if any
     try:
@@ -59,11 +73,7 @@ def main():
     start_time = time.time()
 
     # Load the text file and return a count matrix
-    print('Thanks for your patience. 😊')
-    print('Processing...')
-    countMatrix = count_matrix('wp.txt')
-    probMatrix = probability_matrix(countMatrix)
-    plain_text, score_list = mcmc(cipher_text, countMatrix)
+    plain_text, score_list = mcmc(cipher_text, n_gram=n_gram)
 
     # Get the end time
     end_time = time.time()
@@ -74,6 +84,8 @@ def main():
     print('Plain text: ', plain_text)
     plot_score(score_list)
     # print(probMatrix)
+    # print the accuracy
+    print('Accuracy: ', accuracy(plain_text, message))
     
 
 
@@ -215,7 +227,7 @@ def decrypt(message, key=None):
     return plain_text
 
 
-def get_score(plain_text, probMatrix):
+def get_score(plain_text, probMatrix, n_gram=2):
     """
     Function:
         To get the score of the plain text.
@@ -226,20 +238,32 @@ def get_score(plain_text, probMatrix):
         score -- Score of the plain text
     """
     # letters, alphabet
-    letters = list(string.ascii_lowercase + ' ')
+    letters = list(LETTERS)
     score = 0
-    currentMatrix = count_matrix(text=plain_text)
-    for i in range(len(plain_text)-1):
-        # Get the current letter and the next letter
-        current_letter = plain_text[i]
-        next_letter = plain_text[i + 1]
-        # Get the index of the current letter and the next letter
-        if current_letter.lower() in letters:
+    if n_gram == 2:
+        currentMatrix = count_matrix(text=plain_text)
+        for i in range(len(plain_text)-1):
+            # Get the current letter and the next letter
+            current_letter = plain_text[i]
+            next_letter = plain_text[i + 1]
+            # Get the index of the current letter and the next letter
             current_index = letters.index(current_letter)
-            if next_letter.lower() in letters:
-                next_index = letters.index(next_letter)
-                # Increment the score
-                score += (1+currentMatrix[current_index, next_index]) * np.log(1+probMatrix[current_index, next_index])
+            next_index = letters.index(next_letter)
+            # Increment the score
+            score += (1+currentMatrix[current_index, next_index]) * np.log(1+probMatrix[current_index, next_index])
+    elif n_gram == 3:
+        currentMatrix = count_matrix_trigram(text=plain_text)
+        for i in range(len(plain_text)-2):
+            # Get the current letter and the next letter
+            current_letter = plain_text[i]
+            next_letter = plain_text[i + 1]
+            third_letter = plain_text[i + 2]
+            # Get the index of the current letter and the next letter
+            current_index = letters.index(current_letter)
+            next_index = letters.index(next_letter)
+            third_index = letters.index(third_letter)
+            # Increment the score
+            score += (1+currentMatrix[current_index, next_index, third_index]) * np.log(1+probMatrix[current_index, next_index, third_index])
     return score
 
 def get_new_key(key):
@@ -264,7 +288,7 @@ def get_new_key(key):
     return new_key
 
 
-def mcmc(cipher_text, prob_matrix):
+def mcmc(cipher_text, n_gram=2):
     """
     Function: Given a cipher_text and prob_matrix, it tries to decrypt the message.
     Input:
@@ -274,20 +298,25 @@ def mcmc(cipher_text, prob_matrix):
     Output:
         plain_text -- decrypted plain text
     """
+    # get the count matrix for reference text
+    print("Getting the count matrix for reference text...")
+    if n_gram == 2:
+        countMatrix = count_matrix(file='wp.txt')
+    elif n_gram == 3:
+        countMatrix = count_matrix_trigram(file='wp.txt')
+    print("Count matrix for reference text is ready.")
     # regulating temperature
-    Tmax = 10000
+    Tmax = 1000
     T = Tmax
-    Tmin = 0.1
+    Tmin = 1
     # regulating cooling rate
-    alpha = 0.99
+    tau = 1e-5
 
     # counting number of iterations
     count = 0
     
 
     score_list = []
-    # letters, alphabet
-    letters = list(string.ascii_uppercase)
 
     # get a random key
     key = random_key()
@@ -296,12 +325,13 @@ def mcmc(cipher_text, prob_matrix):
     plain_text = decrypt(cipher_text, key)
 
     # get the score
-    score = get_score(plain_text, prob_matrix)
+    score = get_score(plain_text, countMatrix, n_gram=n_gram)
     score_list.append(score)
 
-    # loop for N times
+    # loop until the temperature is less than the minimum temperature
     while T > Tmin:
         count += 1
+        T = Tmax * np.exp(-tau * count)
         # get a new key
         new_key = get_new_key(key)
 
@@ -309,21 +339,21 @@ def mcmc(cipher_text, prob_matrix):
         new_plain_text = decrypt(cipher_text, new_key)
 
         # get the new score
-        new_score = get_score(new_plain_text, prob_matrix)
+        new_score = get_score(new_plain_text, countMatrix, n_gram=n_gram)
 
         # get the difference in score
         diff =   new_score - score
-        if diff > 0:
+        if diff >= 0:
             key = new_key
             plain_text = new_plain_text
             score = new_score
         else:
-            T = Tmax * alpha ** count
-            prob = np.exp(diff/T)
-            if prob < random.random():
+            prob = np.exp(diff / T)
+            if random.random() < prob:
                 key = new_key
                 plain_text = new_plain_text
                 score = new_score
+        
         if count % 100 == 0:
             score_list.append(score)
 
@@ -344,9 +374,69 @@ def plot_score(score_list):
     plt.xlabel('Iteration')
     plt.ylabel('Score')
     plt.show()
-    print(score_list[:10])
+    print(score_list[-10:])
+
+def matrix_info(matrix):
+    """
+    Function: To print the matrix information.
+    Input:
+        matrix -- Matrix
+    Output:
+        None
+    """
+    # Print the matrix information
+    print('Matrix shape: ', matrix.shape)
+    print('Matrix sum: ', matrix.sum())
+    print('Matrix max: ', matrix.max())
+    print('Matrix min: ', matrix.min())
 
 
+def accuracy(given_text, predicted_text):
+    """
+    Function: To get the accuracy.
+    Input:
+        given_test -- Given test
+        predicted_test -- Predicted test
+    Output:
+        accuracy -- Accuracy
+    """
+    # Get the accuracy
+    accuracy = 0
+    for i in range(len(given_text)):
+        if given_text[i] == predicted_text[i]:
+            accuracy += 1
+    accuracy = accuracy / len(given_text)
+    return accuracy
+
+def count_matrix_trigram(file=None, text=None):
+    """
+    Function: To get the count matrix for trigram.
+    Input:
+        file -- File name
+        text -- Text
+    Output:
+        count_matrix -- Count matrix
+    """
+    # letters, alphabet
+    letters = list(LETTERS)
+    # Get the count matrix
+    count_matrix = np.zeros((len(letters), len(letters), len(letters)))
+    if file:
+        with open(file, 'r', encoding='utf8') as f:
+            text = f.read().lower()
+    for i in range(len(text)-2):
+        # Get the current letter and the next letter
+        current_letter = text[i]
+        next_letter = text[i + 1]
+        next_next_letter = text[i + 2]
+        # Get the index of the current letter and the next letter
+        if current_letter in letters and next_letter in letters and next_next_letter in letters:
+            current_index = letters.index(current_letter)
+            next_index = letters.index(next_letter)
+            next_next_index = letters.index(next_next_letter)
+            # Increment the count
+            count_matrix[current_index, next_index, next_next_index] += 1
+    return count_matrix
 
 
 # ------------------ Testing and Running ------------------

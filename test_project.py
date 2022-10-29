@@ -17,7 +17,7 @@ def test_count_and_prob_matrix():
     """
     Test count matrix function.
     """
-    count_matrix = project.count_matrix('wp.txt')
+    count_matrix = project.count_matrix(file='wp.txt')
     prob_matrix = project.probability_matrix(count_matrix)
     assert count_matrix.shape == (27, 27)
     assert prob_matrix.shape == (27, 27)
