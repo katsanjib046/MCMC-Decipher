@@ -1,19 +1,19 @@
 message: the answer to life the universe and everything is forty two
-time taken: 20.354838848114014
-n_gram: 3
+time taken: 14.24376654624939
+n_gram: 2
 Iteration, Key, Score, Accuracy, Plain Text
-0,GSUJNMXZBPVAREDCQIHOLFKWYT,173.07104015685408,0.1694915254237288,yrf qthbfp yu mkaf yrf otkgfphf qtn fgfpwyrktd kh aupyw ybu
-5000,BYDQPXTMGVSECFHRNUAZWKILOJ,174.3285055965454,0.1694915254237288,bwh dytkhm bx pjih bwh cyjfhmth dyl hfhmvbwjyz jt ixmbv bkx
-10000,MZQADRKYLTHPOVFJBWCUXNESGI,307.51385220830576,0.1694915254237288,hza cmbxas hi fnya hza emnuasba cmw auasghznmp nb yishg hxi
-15000,UWHNDIRTEFGQZMYXOAVPKBLCJS,244.89637981914487,0.1694915254237288,ofn lqmznx ow gskn ofn eqspnxmn lqi npnxuofsqy sm kwxou ozw
-20000,YBZDTEXSRHLPCVJIGWFOQKNAMU,340.85955956752355,0.1694915254237288,apy utchym ak inqy apy dtngymcy utf ygymvapnto nc qkmav ahk
-25000,NXOVTHSJAGEQMKZPDCBURLYIWF,243.00867452406854,0.23728813559322035,wxm lcogmr wv udjm wxm qcdbmrom lck mbmrnwxdch do jvrwn wgv
-30000,UNVXJZBLQKRHTSCFAMEOGWIYPD,327.8896241235465,0.1694915254237288,xwr itfnro xh kcur xwr ztcdrofr its rdrojxwcte cf uhoxj xnh
-35000,OKDESMRGCAWQBZYJTXHPVLUFIN,464.55065436685595,0.1864406779661017,oyf lanefi ov guhf oyf caurfinf lad frfiboyuap un hviob oev
-40000,YHLFMXWDOUSIVCBTPRZEKJQAGN,678.3446111714882,0.3559322033898305,ale wisken ac rmye ale himfense wit efenualmiv ms ycnau akc
-45000,LRDHMZGIBNEAXCVUWOKYTSQFJP,836.468340603348,0.4576271186440678,the wrfven ta boge the cromenfe wrk emensthory of gants tva
-50000,OBQXMGFIVWPJDELTHCZYNSRUKA,934.5359269763289,0.7627118644067796,the casver to wife the maiderse can ederythial is forty tvo
-55000,VRGDMEUIOAHFPJLSWCZYTXQBKN,976.5339695977821,0.6949152542372882,the wisper to bace the diaverse wif everythain as corty tpo
-60000,VTRJMAFIONWDGZLHPCEYSXQBKU,987.445215260966,0.6440677966101694,the winuer to came the liaverne wis everythaid an morty tuo
-65000,VHGJMBAIOTFDRELSPCZYNXQWKU,982.2186978920804,0.6949152542372882,the wisper to mace the liaverse win everythaid as corty tpo
-69078,VURJMPFIOAWDGZLTBCEYSXQHKN,987.445215260966,0.6440677966101694,the winuer to came the liaverne wis everythaid an morty tuo
+0,YPBVARKICHODLXJSEZUWQTNMFG,1009.0743840829153,0.1694915254237288,dju xtopug db aqmu dju rtqyugou xtv uyugndjqth qo mbgdn dpb
+5000,KGHUPQNLWRICAEFXTMVZBYDJOS,1188.5784232299661,0.1694915254237288,scf rixzfa se vnhf scf tinofaxf riq fofapscnik nx heasp sze
+10000,QLOEWYXNITSHKZAJRBPVMDUGCF,1184.395720419267,0.2711864406779661,tla uepkam ts fdba tla nedzampa uej azamgtldei dp bsmtg tks
+15000,QACFYVDRWZSIKEXPNMLTHUGOBJ,1232.1468558423694,0.1694915254237288,fua rizkam fp ensa fua jindamza rit adamofunil nz spmfo fkp
+20000,MVDIFTCWUANSYJKOXZQRHBLEPG,1218.5324008005693,0.2033898305084746,bus ahnlso by mxws bus rhxesons ahf sesoqbuxhd xn wyobq bly
+25000,XDWSEOQLPZUJBFAMIRKGYVCNHT,1116.860593824763,0.1694915254237288,vyg pcldgs vi uehg vyg jcengslg pcz gngsavyecq el hisva vdi
+30000,FZJOKUBSPLYWMICERQXVHNDAGT,1308.3254847288429,0.2711864406779661,tur mlchre ti kpjr tur blparecr mlz rarestupln pc jiets thi
+35000,XGLVHIYMKZSRAEWTNJPQOCBDUF,1327.020095634629,0.1694915254237288,det horkti ds gnct det jonztirt hop tztiadenof nr csida dks
+40000,EUADWJZKFBOGSPVYTLXQHMRNCI,1385.8608466454955,0.1694915254237288,out vefmth on part out geaithft veq tithsouaez af rnhos omn
+45000,VFJMQCZXWBOSDHEINLKTGAYRPU,1480.7147406624103,0.3050847457627119,ane dicles ay wore ane giobesce dit ebeshanoip oc rysah aly
+50000,VCLHQGTFSRAXJMWZUYEPIBKDNO,1447.9096815059427,0.3050847457627119,ade nomiew at rsce ade poshewme nog ehewladsou sm ctwal ait
+55000,VLFXQDGYERUHJTWSNKBMPZIACO,1509.673004599295,0.4406779661016949,ale tomper au hibe ale voicerme ton ecerdaliow im burad apu
+60000,VYDTQLGMWCJXIHEZNKSPAFROBU,1522.2201622320229,0.4576271186440678,ane hikser at bofe ane pioverke hid everlanoim ok ftral ast
+65000,VNLXQITSEBRZFHWDCKJMPGYUOA,1531.6712041550581,0.4915254237288136,ane tosher au wice ane loimerse tog emerdaniof is curad ahu
+69078,VZLKQTRYECOPAHWSUFJMNDIGXB,1535.1677753211213,0.4576271186440678,ane tosped al hice ane boiredse tof eredyaniow is clday apl

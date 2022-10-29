@@ -30,40 +30,39 @@ def main():
     Main function.
     """
     # check the number of arguments
-    if len(sys.argv) != 4:
-        print("Usage: python project.py <n_gram> <plain_text_file> <output_file>")
+    if len(sys.argv) != 4 and len(sys.argv) != 5:
+        print("Usage: python project.py <n_gram> <plain_text_file> <output_file> (optional:<key>)")
         sys.exit(1)
     try:
         n_gram = int(sys.argv[1])
         message_file = os.path.join('test_files', sys.argv[2])
         output_file = os.path.join('output_files', sys.argv[3])
+        if len(sys.argv) == 5:
+             # Get the key, if any
+            try:
+                key = sys.argv[4]
+                if  len(key) == 1 or len(key) == 2:
+                    try:
+                        key = int(key)
+                        if not 0 < key < 26:
+                            raise ValueError 
+                    except ValueError:
+                        raise ValueError
+                elif len(key) != 26:
+                    raise ValueError
+            except ValueError:
+                print('Invalid key')
+                sys.exit(1)
+        else:
+            key = None
     except ValueError:
-        print("Usage: python project.py <n_gram> <plain_text_file> <output_file>")
+        print("Usage: python project.py <n_gram> <plain_text_file> <output_file> (optional:<key>)")
         sys.exit(1)
 
     # Get input from the user
     # Get message to be encrypted
     with open(message_file, 'r', encoding='utf8') as f:
         message = f.read().strip().lower()
-
-    # Get the key, if any
-    # try:
-    #     key = input('Enter the key. Press Enter for RandomCipher: ')
-    #     if key == '':
-    #         key = None
-    #     elif  len(key) == 1 or len(key) == 2:
-    #         try:
-    #             key = int(key)
-    #             if not 0 < key < 26:
-    #                 raise ValueError 
-    #         except ValueError:
-    #             raise ValueError
-    #     elif len(key) != 26:
-    #         raise ValueError
-    # except ValueError:
-    #     print('Invalid key')
-    #     sys.exit(1)
-    key = None # means random cipher
 
 
     # get the cipher text
@@ -160,6 +159,81 @@ def count_matrix_trigram(file=None, text=None):
             count_matrix[current_index, next_index, next_next_index] += 1
     return count_matrix
 
+
+def count_matrix_unigram(file=None, text=None):
+    """
+    Function: To get the count matrix for unigram.
+    Input:
+        file -- File name
+        text -- Text
+    Output:
+        count_matrix -- Count matrix
+    """
+    # letters, alphabet
+    letters = list(string.ascii_lowercase)
+    # Get the count matrix
+    count_matrix = np.zeros((len(letters)))
+    if file:
+        with open(file, 'r', encoding='utf8') as f:
+            text = f.read().lower()
+    for i in range(len(text)):
+        # Get the current letter and the next letter
+        current_letter = text[i]
+        # Get the index of the current letter and the next letter
+        if current_letter in letters:
+            current_index = letters.index(current_letter)
+            # Increment the count
+            count_matrix[current_index] += 1
+    return count_matrix
+
+
+def unigram_attack(cipher_text):
+    """
+    Function: To get the unigram attack.
+    Input:
+        cipher_text -- Cipher text
+    Output:
+        key -- Key
+    """
+    # Get the count matrix
+    count_matrix = count_matrix_unigram(file='wp.txt')
+    # Get the count matrix
+    count_matrix_message = count_matrix_unigram(text=cipher_text)
+    # Get the key
+    key = get_key_unigram(count_matrix, count_matrix_message)
+    return key
+
+
+def get_key_unigram(count_matrix, count_matrix_message):
+    """
+    Function: To get the key for unigram attack.
+    Input:
+        count_matrix -- Count matrix
+        count_matrix_message -- Count matrix for the message
+    Output:
+        key -- Key
+    """
+    # letters, alphabet
+    letters = list(string.ascii_uppercase)
+    # Get the key
+    key = [i for i in range(len(letters))]
+    # iterate over the count_matrix_message
+    for i in range(len(count_matrix_message)):
+        # Get the index of the maximum value in the count matrix message
+        index_message = np.argmax(count_matrix_message)
+        # get the corresponding letter
+        letter_message = letters[index_message]
+        # Get the index of the maximum value in the count matrix
+        index_count_matrix = np.argmax(count_matrix)
+        # Get the letter corresponding to the index
+        letter_matrix = letters[index_count_matrix]
+        # make replacement in the key
+        key[index_message] = letter_matrix
+        # Make the count matrix message and count matrix zero
+        count_matrix_message[index_message] = -(i+1)
+        count_matrix[index_count_matrix] = -(i+1)
+    key = ''.join(key)
+    return key
 
 
 def probability_matrix(count_matrix):
@@ -350,7 +424,9 @@ def mcmc(cipher_text, message, n_gram=2):
     info = dict()
 
     # get a random key
-    key = random_key()
+    # key = random_key()
+    # get a key using unigram
+    key = unigram_attack(cipher_text)
 
     # get the plain text
     plain_text = decrypt(cipher_text, key)

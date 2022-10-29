@@ -1,0 +1,19 @@
+message: ukraines foreign minister rallied other countries to demand russia stop its hunger games after moscow backed out of a united nations brokered grain export deal saturday
+time taken: 35.58668088912964
+n_gram: 2
+Iteration, Key, Score, Accuracy, Plain Text
+0,XRGEMSLAJUBYZITCWFPODNHQVK,2984.789844050277,0.16071428571428573,jstwvruq xytuvcr ivrvqout twbbvuk yofut dyjrotvuq oy kuiwrk tjqqvw qoyp voq fjrcut cwiuq wxout iyqdyl gwdsuk yjo yx w jrvouk rwovyrq gtysutuk ctwvr uzpyto kuwb qwojtkwm
+5000,WCQRSBIPGATDKFUMYOVXNLJHZE,3600.4492879401314,0.2976190476190476,ohrxunla csrluin wunuaklr rxddulf skelr zsonkrula ks flwxnf roaaux aksb uka eonilr ixwla xcklr wsazsq vxzhlf sok sc x onuklf nxkusna vrshlrlf irxun lmbsrk flxd axkorfxy
+10000,OBDNTWUVZSXAGJCPQFRMHELIKY,3455.0088697408273,0.1488095238095238,gpaudrcf qhacdmr ndrdfeca aussdcb hejca vhgreadcf eh bcnurb agffdu feho def jgrmca muncf uqeca nhfvhz wuvpcb hge hq u grdecb ruedhrf wahpcacb maudr cyohae bcus fuegabui
+15000,QAPRJOKTDSVIBHNLUGEWXFMZCY,3772.9158046654243,0.1488095238095238,qcfnovit akfiorv eovothif fnddoim khjif skqvhfoit hk mienvm fqtton thky oht jqvrif rneit nahif ektskz pnscim kqh ka n qvohim vnhokvt pfkcifim rfnov igykfh mind tnhqfmnx
+20000,FAMCBHIPWTZJYEDOQNULVXKSGR,3630.334492256192,0.1488095238095238,shpfraoi quporya lrarijop pfzzroe ujxop nusajproi ju eolfae psiirf ijud rji xsayop yfloi fqjop luinum tfnhoe usj uq f sarjoe afjruai tpuhopoe ypfra owdupj eofz ifjspefk
+25000,CEYRDBPJHSUQGFWIKONTVAZLXM,4308.374597386655,0.4583333333333333,kgrisneo luresmn hsnsoter riddsef utjer bukntrseo tu fehinf rkoosi otua sto jknmer miheo ilter huobuc xibgef ukt ul i knstef nitsuno xrugeref mrisn eqaurt feid oitkrfiw
+30000,DRXNHZIGFAUKEBVWSOTQCMLJPY,4290.872293447325,0.30357142857142855,kyrediap toradhi xdidpsar rebbdan osqar mokisrdap so naxein rkppde psou dsp qkihar hexap etsar xopmoz wemyan oks ot e kidsan iesdoip wroyaran hredi aluors naeb peskrnef
+35000,DYLBHTJIFZAPEWVUSNMOGQCXRK,4427.61207828015,0.26785714285714285,plterian votarui grirnfat teyyrad ofqat mopiftran fo dageid tpnnre nfow rfn qpiuat uegan evfat gonmob cemlad opf ov e pirfad iefroin ctolatad uteri azwotf daey nefptdej
+40000,HCUYDGJNTSKEQBVPMORFZLWIAX,4475.150926590598,0.47619047619047616,cprahtew morehft ghthwier rasshen oijer loctirhew io negatn rcwwha wiob hiw jctfer fagew amier gowlod valpen oci om a cthien taihotw vroperen fraht ekbori neas waicrnau
+45000,HJGBDLCSFZINERVQAOTWUPKMXY,4682.774373140364,0.5773809523809523,uvraliet porelci bliltser rannled osher mouisrlet so debaid ruttla tsog lst huicer cabet apser botmoz famved ous op a uilsed iasloit frovered crali ewgors dean tasurdaj
+50000,VLSBDRGJNZXCEFHPMOWTUYQKIA,4833.059522260536,0.7202380952380952,uproines wareign hinister roffied atcer mauntries ta dehond russio stal its cunger gohes owter hasmav bomped aut aw o united notians brapered groin exlart deof soturdoj
+55000,HLQBDPGSNICRJFVEXOWTUZYAKM,4855.425879137579,0.9226190476190477,ufraines coreign minister rallied other pountries to demand russia stok its hunger games acter mospow bapfed out oc a united nations brofered grain eykort deal saturdav
+60000,HSLBDQGJNXYREFVPMOWTUCAKZI,4864.7616348387755,0.8988095238095238,upraines foreign hinister rallied otber mountries to dehand russia stov its bunger gahes after hosmok camped out of a united nations cropered grain exvort deal saturday
+65000,HLEBDQGSNXYPKFVRAOWTUZJICM,4881.877994364307,0.9107142857142857,ulraines foreign winister rappied other countries to dewand russia stoy its hunger gawes after woscok bacled out of a united nations brolered grain emyort deap saturdav
+69078,HLEBDQGSNMYPKFVRXOWTUZJACI,4881.877994364307,0.9107142857142857,ulraines foreign winister rappied other countries to dewand russia stoy its hunger gawes after woscok bacled out of a united nations brolered grain emyort deap saturdav
