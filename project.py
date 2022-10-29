@@ -17,6 +17,7 @@ import time
 import sys
 import matplotlib.pyplot as plt
 import os
+import collections as c
 
 # import my own module
 import cipher
@@ -85,6 +86,16 @@ def main():
     print('Your request has been processed. Please check the output file.')
     
     
+def chunker(seq, size):
+    """
+    Function: To split a string into chunks of a given size.
+    Input:
+        seq -- String
+        size -- Size
+    Output:
+        chunk -- Chunk
+    """
+    return [''.join(seq[pos:pos + size]) for pos in range(0, len(seq), size)]
 
 
 def count_matrix(file=None, text=None):
@@ -107,26 +118,16 @@ def count_matrix(file=None, text=None):
     elif text is not None:
         text = text.lower()
 
-    # Initialize the count matrix
-    count_matrix = np.zeros((len(letters), len(letters)))
+    # create a list of all the letters in the text
+    letters_list = [letter for letter in text if letter.isalpha() or letter == ' ']
 
-    # Loop through the text
-    for i in range(len(text) - 1):
-        # Get the current letter and the next letter
-        current_letter = text[i]
-        next_letter = text[i + 1]
+    # make chuncks of 2 letters
+    chunks = chunker(letters_list, 2)
 
-        # Get the index of the current letter and the next letter
-        if current_letter in letters:
-            current_index = letters.index(current_letter)
-            if next_letter in letters:
-                next_index = letters.index(next_letter)
+    # create a dictionary of all the letters and their counts
+    count_dict = c.Counter(chunks)
 
-                # Increment the count matrix
-                count_matrix[current_index, next_index] += 1
-
-    # Return the count matrix
-    return count_matrix
+    return count_dict
 
 
 def count_matrix_trigram(file=None, text=None):
@@ -345,17 +346,13 @@ def get_score(plain_text, probMatrix, n_gram=2):
     # letters, alphabet
     letters = list(LETTERS)
     score = 0
+
     if n_gram == 2:
         currentMatrix = count_matrix(text=plain_text)
-        for i in range(len(plain_text)-1):
-            # Get the current letter and the next letter
-            current_letter = plain_text[i]
-            next_letter = plain_text[i + 1]
-            # Get the index of the current letter and the next letter
-            current_index = letters.index(current_letter)
-            next_index = letters.index(next_letter)
-            # Increment the score
-            score += (1+currentMatrix[current_index, next_index]) * np.log(1+probMatrix[current_index, next_index])
+        for key in currentMatrix.keys():
+            if key in probMatrix.keys():
+                score += (1+currentMatrix[key]) * np.log(1+probMatrix[key])
+
     elif n_gram == 3:
         currentMatrix = count_matrix_trigram(text=plain_text)
         for i in range(len(plain_text)-2):
