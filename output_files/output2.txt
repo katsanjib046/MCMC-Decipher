@@ -1,0 +1,19 @@
+message: the answer to life the universe and everything is forty two
+time taken: 20.354838848114014
+n_gram: 3
+Iteration, Key, Score, Accuracy, Plain Text
+0,GSUJNMXZBPVAREDCQIHOLFKWYT,173.07104015685408,0.1694915254237288,yrf qthbfp yu mkaf yrf otkgfphf qtn fgfpwyrktd kh aupyw ybu
+5000,BYDQPXTMGVSECFHRNUAZWKILOJ,174.3285055965454,0.1694915254237288,bwh dytkhm bx pjih bwh cyjfhmth dyl hfhmvbwjyz jt ixmbv bkx
+10000,MZQADRKYLTHPOVFJBWCUXNESGI,307.51385220830576,0.1694915254237288,hza cmbxas hi fnya hza emnuasba cmw auasghznmp nb yishg hxi
+15000,UWHNDIRTEFGQZMYXOAVPKBLCJS,244.89637981914487,0.1694915254237288,ofn lqmznx ow gskn ofn eqspnxmn lqi npnxuofsqy sm kwxou ozw
+20000,YBZDTEXSRHLPCVJIGWFOQKNAMU,340.85955956752355,0.1694915254237288,apy utchym ak inqy apy dtngymcy utf ygymvapnto nc qkmav ahk
+25000,NXOVTHSJAGEQMKZPDCBURLYIWF,243.00867452406854,0.23728813559322035,wxm lcogmr wv udjm wxm qcdbmrom lck mbmrnwxdch do jvrwn wgv
+30000,UNVXJZBLQKRHTSCFAMEOGWIYPD,327.8896241235465,0.1694915254237288,xwr itfnro xh kcur xwr ztcdrofr its rdrojxwcte cf uhoxj xnh
+35000,OKDESMRGCAWQBZYJTXHPVLUFIN,464.55065436685595,0.1864406779661017,oyf lanefi ov guhf oyf caurfinf lad frfiboyuap un hviob oev
+40000,YHLFMXWDOUSIVCBTPRZEKJQAGN,678.3446111714882,0.3559322033898305,ale wisken ac rmye ale himfense wit efenualmiv ms ycnau akc
+45000,LRDHMZGIBNEAXCVUWOKYTSQFJP,836.468340603348,0.4576271186440678,the wrfven ta boge the cromenfe wrk emensthory of gants tva
+50000,OBQXMGFIVWPJDELTHCZYNSRUKA,934.5359269763289,0.7627118644067796,the casver to wife the maiderse can ederythial is forty tvo
+55000,VRGDMEUIOAHFPJLSWCZYTXQBKN,976.5339695977821,0.6949152542372882,the wisper to bace the diaverse wif everythain as corty tpo
+60000,VTRJMAFIONWDGZLHPCEYSXQBKU,987.445215260966,0.6440677966101694,the winuer to came the liaverne wis everythaid an morty tuo
+65000,VHGJMBAIOTFDRELSPCZYNXQWKU,982.2186978920804,0.6949152542372882,the wisper to mace the liaverse win everythaid as corty tpo
+69078,VURJMPFIOAWDGZLTBCEYSXQHKN,987.445215260966,0.6440677966101694,the winuer to came the liaverne wis everythaid an morty tuo

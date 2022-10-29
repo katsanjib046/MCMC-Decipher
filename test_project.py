@@ -24,6 +24,13 @@ def test_count_and_prob_matrix():
     # probability for each row must sum to 1
     for i in range(27):
         assert 0.99999 < prob_matrix[0,:].sum() <= 1
+
+def test_count_matrix_trigram():
+    """
+    Test for count_matrix_trigram function.
+    """
+    count_matrix = project.count_matrix_trigram(file='wp.txt')
+    assert count_matrix.shape == (27, 27, 27)
     
 
 def test_random_key():
@@ -51,3 +58,12 @@ def test_decrypt():
     assert project.decrypt('jgnnq?', key=2) == 'hello?'
     assert project.decrypt('ifmmp', key='BCDEFGHIJKLMNOPQRSTUVWXYZA') == 'hello'
     assert project.decrypt(project.encrypt('hello world', key=1), key=1) == 'hello world'
+
+def test_accuracy():
+    """
+    Test for accuracy function.
+    """
+    assert project.accuracy('hello', 'hello') == 1
+    assert project.accuracy('hello', 'hillo') == 0.8
+    assert project.accuracy('hello', 'hillo world') == 0.8
+    assert project.accuracy('the world is beautiful', 'the world is beautiful') == 1

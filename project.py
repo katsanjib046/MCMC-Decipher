@@ -16,6 +16,7 @@ import string
 import time
 import sys
 import matplotlib.pyplot as plt
+import os
 
 # import my own module
 import cipher
@@ -29,41 +30,40 @@ def main():
     Main function.
     """
     # check the number of arguments
-    if len(sys.argv) != 2:
-        print("Usage: python project.py <n_gram>")
+    if len(sys.argv) != 4:
+        print("Usage: python project.py <n_gram> <plain_text_file> <output_file>")
         sys.exit(1)
     try:
         n_gram = int(sys.argv[1])
+        message_file = os.path.join('test_files', sys.argv[2])
+        output_file = os.path.join('output_files', sys.argv[3])
     except ValueError:
-        print("Usage: python project.py <n_gram>")
+        print("Usage: python project.py <n_gram> <plain_text_file> <output_file>")
         sys.exit(1)
 
     # Get input from the user
     # Get message to be encrypted
-    message = input('Enter the message: ')
-    if len(message) == 0:
-        message = 'I am the king of the world'
-        message = message + ' '
-        message = message.lower()
-        message = message * 10
+    with open(message_file, 'r', encoding='utf8') as f:
+        message = f.read().strip().lower()
 
     # Get the key, if any
-    try:
-        key = input('Enter the key. Press Enter for RandomCipher: ')
-        if key == '':
-            key = None
-        elif  len(key) == 1 or len(key) == 2:
-            try:
-                key = int(key)
-                if not 0 < key < 26:
-                    raise ValueError 
-            except ValueError:
-                raise ValueError
-        elif len(key) != 26:
-            raise ValueError
-    except ValueError:
-        print('Invalid key')
-        sys.exit(1)
+    # try:
+    #     key = input('Enter the key. Press Enter for RandomCipher: ')
+    #     if key == '':
+    #         key = None
+    #     elif  len(key) == 1 or len(key) == 2:
+    #         try:
+    #             key = int(key)
+    #             if not 0 < key < 26:
+    #                 raise ValueError 
+    #         except ValueError:
+    #             raise ValueError
+    #     elif len(key) != 26:
+    #         raise ValueError
+    # except ValueError:
+    #     print('Invalid key')
+    #     sys.exit(1)
+    key = None # means random cipher
 
 
     # get the cipher text
@@ -73,19 +73,18 @@ def main():
     start_time = time.time()
 
     # Load the text file and return a count matrix
-    plain_text, score_list = mcmc(cipher_text, n_gram=n_gram)
+    print('Please wait while we process your request...')
+    info = mcmc(cipher_text, message, n_gram=n_gram)
 
     # Get the end time
     end_time = time.time()
 
     # Print the time taken
-    print('Time taken to decrypt the message: ', end_time - start_time)
-    print('Cipher text: ', cipher_text)
-    print('Plain text: ', plain_text)
-    plot_score(score_list)
-    # print(probMatrix)
-    # print the accuracy
-    print('Accuracy: ', accuracy(plain_text, message))
+    time_taken = end_time - start_time
+    write_output(message, info, output_file, time_taken, n_gram)
+    plot_score(info, output_file)
+    print('Your request has been processed. Please check the output file.')
+    
     
 
 
@@ -129,6 +128,38 @@ def count_matrix(file=None, text=None):
 
     # Return the count matrix
     return count_matrix
+
+
+def count_matrix_trigram(file=None, text=None):
+    """
+    Function: To get the count matrix for trigram.
+    Input:
+        file -- File name
+        text -- Text
+    Output:
+        count_matrix -- Count matrix
+    """
+    # letters, alphabet
+    letters = list(LETTERS)
+    # Get the count matrix
+    count_matrix = np.zeros((len(letters), len(letters), len(letters)))
+    if file:
+        with open(file, 'r', encoding='utf8') as f:
+            text = f.read().lower()
+    for i in range(len(text)-2):
+        # Get the current letter and the next letter
+        current_letter = text[i]
+        next_letter = text[i + 1]
+        next_next_letter = text[i + 2]
+        # Get the index of the current letter and the next letter
+        if current_letter in letters and next_letter in letters and next_next_letter in letters:
+            current_index = letters.index(current_letter)
+            next_index = letters.index(next_letter)
+            next_next_index = letters.index(next_next_letter)
+            # Increment the count
+            count_matrix[current_index, next_index, next_next_index] += 1
+    return count_matrix
+
 
 
 def probability_matrix(count_matrix):
@@ -288,7 +319,7 @@ def get_new_key(key):
     return new_key
 
 
-def mcmc(cipher_text, n_gram=2):
+def mcmc(cipher_text, message, n_gram=2):
     """
     Function: Given a cipher_text and prob_matrix, it tries to decrypt the message.
     Input:
@@ -310,13 +341,13 @@ def mcmc(cipher_text, n_gram=2):
     T = Tmax
     Tmin = 1
     # regulating cooling rate
-    tau = 1e-5
+    tau = 1e-4
 
     # counting number of iterations
     count = 0
     
 
-    score_list = []
+    info = dict()
 
     # get a random key
     key = random_key()
@@ -326,7 +357,7 @@ def mcmc(cipher_text, n_gram=2):
 
     # get the score
     score = get_score(plain_text, countMatrix, n_gram=n_gram)
-    score_list.append(score)
+    info[count] = {'iteration': count, 'key': key, 'score': score, 'plain_text': plain_text, 'accuracy': accuracy(plain_text, message)}
 
     # loop until the temperature is less than the minimum temperature
     while T > Tmin:
@@ -354,14 +385,26 @@ def mcmc(cipher_text, n_gram=2):
                 plain_text = new_plain_text
                 score = new_score
         
-        if count % 100 == 0:
-            score_list.append(score)
+        if count % 5000 == 0:
+            info[count] = {
+                'iteration': count, 
+                'key': key, 
+                'score': score, 
+                'plain_text': plain_text, 
+                'accuracy': accuracy(plain_text, message)}
+
+    info[count] = {
+                'iteration': count, 
+                'key': key, 
+                'score': score, 
+                'plain_text': plain_text, 
+                'accuracy': accuracy(plain_text, message)}
 
     # return the plain text
-    return plain_text, score_list
+    return info
 
 
-def plot_score(score_list):
+def plot_score(info, file_name):
     """
     Function: To plot the score list.
     Input:
@@ -369,12 +412,15 @@ def plot_score(score_list):
     Output:
         None
     """
+    # get the file name before the extension
+    file_name = file_name.split('.')[0]
+    # Get the score list
+    score_list = [info[i]['score'] for i in info]
     # Plot the score list
     plt.plot(score_list)
-    plt.xlabel('Iteration')
+    plt.xlabel('Iteration (*5000)')
     plt.ylabel('Score')
-    plt.show()
-    print(score_list[-10:])
+    plt.savefig(file_name + '_score.png')
 
 def matrix_info(matrix):
     """
@@ -408,35 +454,30 @@ def accuracy(given_text, predicted_text):
     accuracy = accuracy / len(given_text)
     return accuracy
 
-def count_matrix_trigram(file=None, text=None):
+def write_output(message, info, file_name, time_taken, n_gram):
     """
-    Function: To get the count matrix for trigram.
+    Function: To write the output to a file.
     Input:
-        file -- File name
-        text -- Text
+        message -- Message
+        plain_text -- Plain text
+        file_name -- File name
+        time_taken -- Time taken
     Output:
-        count_matrix -- Count matrix
+        None
     """
-    # letters, alphabet
-    letters = list(LETTERS)
-    # Get the count matrix
-    count_matrix = np.zeros((len(letters), len(letters), len(letters)))
-    if file:
-        with open(file, 'r', encoding='utf8') as f:
-            text = f.read().lower()
-    for i in range(len(text)-2):
-        # Get the current letter and the next letter
-        current_letter = text[i]
-        next_letter = text[i + 1]
-        next_next_letter = text[i + 2]
-        # Get the index of the current letter and the next letter
-        if current_letter in letters and next_letter in letters and next_next_letter in letters:
-            current_index = letters.index(current_letter)
-            next_index = letters.index(next_letter)
-            next_next_index = letters.index(next_next_letter)
-            # Increment the count
-            count_matrix[current_index, next_index, next_next_index] += 1
-    return count_matrix
+    # Write the output to a file
+    with open(file_name, 'w') as f:
+        f.write('message: ' + message + '\n')
+        f.write('time taken: ' + str(time_taken) + '\n')
+        f.write('n_gram: ' + str(n_gram) + '\n')
+        f.write('Iteration, Key, Score, Accuracy, Plain Text')
+        for keys in info.keys():
+            f.write('\n')
+            f.write(str(info[keys]['iteration']) + ',')
+            f.write(info[keys]['key'] + ',')
+            f.write(str(info[keys]['score']) + ',')
+            f.write(str(info[keys]['accuracy'])+ ',')
+            f.write(info[keys]['plain_text'])
 
 
 # ------------------ Testing and Running ------------------
