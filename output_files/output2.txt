@@ -1,19 +1,76 @@
 message: the answer to life the universe and everything is forty two
-time taken: 14.24376654624939
+time taken: 7.148649454116821
+n_gram: 3
+Iteration, Key, Score, Accuracy, Plain Text
+0,RIEAYTDPOCWLBFVKHNGUXSJMZQ,75.61498741389087,0.1694915254237288,noj sbzfja nm rguj noj wbgljazj sbp jljadnogbv gz umand nfm
+5000,JWUECYPDXKBNFOHRIGVAMLTSQZ,119.45515534259205,0.3898305084745763,mse rqywep mk lhie mse aqhvepye rqj eveptmshqx hy ikpmt mwk
+10000,SKFBHVDGXAOYTQULPNWEICMJZR,78.37616092437486,0.1694915254237288,cfv hunmvz cd rgiv cfv xugpvznv hub vpvzjcfgua gn idzcj cmd
+15000,VEIJHKSGCYOFZPBQNDUAWLXRMT,110.35516659050393,0.2711864406779661,lai hcpzix lo qrwi lai dcrvixpi hcf ivixtlarcg rp woxlt lzo
+20000,FZXLHPAOBMNJEDIGRQVWCKTUSY,128.41165135119937,0.2033898305084746,asu porwuq ai kncu asu londuqru pov uduqgasnoy nr ciqag awi
+25000,WIVBPYCROFKTSZUNXDHGQJMAEL,56.37409922094245,0.1694915254237288,jcg tbulgh jd prqg jcg vbrzghug tbk gzghxjcrbm ru qdhjx jld
+30000,MBGQSNEHFJIRXAYTZVKODCLUPW,91.24939288457705,0.1694915254237288,irv ckdpvl ib fumv irv jkuwvldv cks vwvlniruke ud mblin ipb
+35000,LOPGUFADXQYVJSTRZHBKEINCMW,63.99955585697509,0.1694915254237288,flx dvjoxp fs whix flx mvhaxpjx dvt xaxpgflhvn hj ispfg fos
+40000,CYVXSKRQFLHDWJUOGBMAIPTZNE,137.04468024989322,0.2033898305084746,ica quhwag ir ylda ica nuljagha quf ajagticlue lh drgit iwr
+45000,GJZCHNWEIPLMRKVUYBFAXOQSDT,135.85377215804021,0.2033898305084746,sod aiwzdm sr fyud sod biykdmwd ain dkdmtsoyix yw urmst szr
+50000,IGPWCAQVRLOMNTZDYKXFHUBSJE,195.36775302199425,0.4576271186440678,the bagnei tw mpse the yapjeige bar ejeifthpax pg switf tnw
+55000,AJXPUNBVDMWOGRCTYLFQIZSEKH,186.24144033082365,0.288135593220339,sho mutpon sg fico sho buironto muy oronashiuw it cgnsa spg
+60000,BZGKCNQVDMWIPRSJUTXFYLOHAE,251.20967861682516,0.6101694915254238,the clgren ta fise the plivenge cld evenythilo ig santy tra
+65000,RJGSCZPVOYHIXADTMQBFNLWUKE,258.6032972382384,0.4915254237288136,the clrpea ts uome the bloveare cly eveanthold or msatn tps
+69078,BEMQCNAVGWUIXRDHPTSFYLJOKZ,267.68127700687114,0.4915254237288136,the ildren ta fome the wlovende ily evengthols od mantg tra
+message: the answer to life the universe and everything is forty two
+time taken: 9.227799892425537
 n_gram: 2
 Iteration, Key, Score, Accuracy, Plain Text
-0,YPBVARKICHODLXJSEZUWQTNMFG,1009.0743840829153,0.1694915254237288,dju xtopug db aqmu dju rtqyugou xtv uyugndjqth qo mbgdn dpb
-5000,KGHUPQNLWRICAEFXTMVZBYDJOS,1188.5784232299661,0.1694915254237288,scf rixzfa se vnhf scf tinofaxf riq fofapscnik nx heasp sze
-10000,QLOEWYXNITSHKZAJRBPVMDUGCF,1184.395720419267,0.2711864406779661,tla uepkam ts fdba tla nedzampa uej azamgtldei dp bsmtg tks
-15000,QACFYVDRWZSIKEXPNMLTHUGOBJ,1232.1468558423694,0.1694915254237288,fua rizkam fp ensa fua jindamza rit adamofunil nz spmfo fkp
-20000,MVDIFTCWUANSYJKOXZQRHBLEPG,1218.5324008005693,0.2033898305084746,bus ahnlso by mxws bus rhxesons ahf sesoqbuxhd xn wyobq bly
-25000,XDWSEOQLPZUJBFAMIRKGYVCNHT,1116.860593824763,0.1694915254237288,vyg pcldgs vi uehg vyg jcengslg pcz gngsavyecq el hisva vdi
-30000,FZJOKUBSPLYWMICERQXVHNDAGT,1308.3254847288429,0.2711864406779661,tur mlchre ti kpjr tur blparecr mlz rarestupln pc jiets thi
-35000,XGLVHIYMKZSRAEWTNJPQOCBDUF,1327.020095634629,0.1694915254237288,det horkti ds gnct det jonztirt hop tztiadenof nr csida dks
-40000,EUADWJZKFBOGSPVYTLXQHMRNCI,1385.8608466454955,0.1694915254237288,out vefmth on part out geaithft veq tithsouaez af rnhos omn
-45000,VFJMQCZXWBOSDHEINLKTGAYRPU,1480.7147406624103,0.3050847457627119,ane dicles ay wore ane giobesce dit ebeshanoip oc rysah aly
-50000,VCLHQGTFSRAXJMWZUYEPIBKDNO,1447.9096815059427,0.3050847457627119,ade nomiew at rsce ade poshewme nog ehewladsou sm ctwal ait
-55000,VLFXQDGYERUHJTWSNKBMPZIACO,1509.673004599295,0.4406779661016949,ale tomper au hibe ale voicerme ton ecerdaliow im burad apu
-60000,VYDTQLGMWCJXIHEZNKSPAFROBU,1522.2201622320229,0.4576271186440678,ane hikser at bofe ane pioverke hid everlanoim ok ftral ast
-65000,VNLXQITSEBRZFHWDCKJMPGYUOA,1531.6712041550581,0.4915254237288136,ane tosher au wice ane loimerse tog emerdaniof is curad ahu
-69078,VZLKQTRYECOPAHWSUFJMNDIGXB,1535.1677753211213,0.4576271186440678,ane tosped al hice ane boiredse tof eredyaniow is clday apl
+0,XAQJIULRKMBNFCGWOVZSPHYDET,670.6813921005903,0.2711864406779661,xan cuhwne xj tizn xan muibnehn cuq nbnepxaiul ih zjexp xwj
+5000,GWJAMORVFYBHCXDUZNKESTLIPQ,634.389542005985,0.1694915254237288,onm zygjmx oe usvm onm iysdmxgm zyf mdmxbonsyr sg vexob oje
+10000,TWIGVFHCONQYZJUSDARKXBEPLM,580.2251153488769,0.22033898305084745,quh kxslhc qz ptah quh fxtrhcsh kxi hrhcbqutxj ts azcqb qlz
+15000,VSUKOQJDZMYXHIPTBWFEGCLNRA,642.7314583043777,0.1694915254237288,hlv foykvn hj bdpv hlv sodzvnyv foe vzvnrhldox dy pjnhr hkj
+20000,QSKTRWXZFHGBEMCJNYPAIOLVUD,721.588702246521,0.2033898305084746,zgo aserou zn bcdo zgo isctoueo asv otoufzgcsq ce dnuzf zrn
+25000,HKWGSXEZNLBYMAIQODUJVFPRTC,566.6314449461082,0.1694915254237288,rfz pwxlzo rm ebyz rfz vwbnzoxz pwq znzocrfbwi bx ymorc rlm
+30000,PHWMDIEOXGYQTLUSZBNRCVFJKA,764.0043474000287,0.1694915254237288,eiu latkuf ed pymu eiu wayzuftu lah uzufceiyas yt mdfec ekd
+35000,JSWBLKXCRHGADFMQVEIPNUYOTZ,724.3522310733332,0.2542372881355932,mgh ptiwhs mo bfyh mgh ntflhsih ptx hlhscmgftu fi yosmc mwo
+40000,TNVUWRXQCEJGDASOYPMIFHBLKZ,786.0508206304864,0.1864406779661017,mgi hrfqit ms oyai mgi urynitfi hrp initemgyrb yf astme mqs
+45000,DQANPWLVKGZITRCJHYXSBOUEMF,915.6243442912486,0.23728813559322035,aso benrol ay timo aso zeicolno bev ocolfasied in mylaf ary
+50000,DXHMCNIWQUBYJTKVERSPOALFGZ,925.0765428010504,0.3389830508474576,abe itrleg ad sone abe xtovegre itu eveghabotf or ndgah ald
+55000,DQZNPLMSKUVFATCXGRYWIOHJBE,956.7095894017356,0.23728813559322035,apo bersou ag hino apo leimouro bev omoutapied ir nguat asg
+60000,DZASPNEITVBWQMRXHKYCUGFJOL,952.4625972540534,0.1694915254237288,apt meosth an drit apt wercthot mey tcthlapref ro inhal asn
+65000,RQUOPFJIAGBNWYDSHKTCXVMLZE,983.017001931671,0.1864406779661017,out beanth ow prst out ferithat bed tithmourel ra swhom onw
+69078,RQFNPSLIAVUOZYDBJKTCXEMHWG,982.5863371266475,0.2033898305084746,out beanth ow frst out cerithat bel tithyoured ra swhoy onw
+message: the answer to life the universe and everything is forty two
+time taken: 7.875707626342773
+n_gram: 3
+Iteration, Key, Score, Accuracy, Plain Text
+0,GVLKAZHSRXUENPWTFQICYBMDJO,193.78321500237342,0.1694915254237288,gxa lwjcao gh yfia gxa kwftaoja lws ataobgxfwq fj ihogb gch
+5000,ANGLTEUBFRJKZPOCIWHQSXYMVD,180.20969844632427,0.2711864406779661,szc fxvdcr su kmjc szc gxmpcrvc fxq cpcryszmxi mv jursy sdu
+10000,VDCWKOARSQBYUXHJMZLIPFETGN,313.91099583437597,0.1694915254237288,oby wqnsyd oi prhy oby mqrcydny wqt ycydaobrqv rn hidoa osi
+15000,NEAGMPCYWQTHFUZVORKLIBDSXJ,344.4299318416277,0.1694915254237288,lwd beytdi lx zord lwd neogdiyd beu dgdiplwoem oy rxilp ltx
+20000,NTPXCGHRZAFKWLDSUMVQEBJYIO,368.81380640624207,0.23728813559322035,gof urdnfm gp wihf gof qriefmdf ury fefmsgoirk id hpmgs gnp
+25000,ZRWGICMLXEYDKVOFAHSBPQNJUT,307.06184341985187,0.1694915254237288,rld jgihdc rs xabd rld ygafdcid jge dfdcnrlagp ai bscrn rhs
+30000,AUCZDBVRMIOSPLGJKXEWNTQFYH,358.56385095141763,0.1694915254237288,zeo sirnot zl pdho zeo bidcotro sij ocotgzedix dr hltzg znl
+35000,UCSDGBOLHZYVNEQAPWIXKJRMFT,456.3635356194693,0.3728813559322034,ide nxther ic vjwe ide axjberte nxs eberlidjxy jt wcril ihc
+40000,HOVNCYAKEBXQGZMUTWDSRLIJPF,431.4541548049651,0.23728813559322035,asm iokvmr at xnum asm ponemrkm iow memrcasnoz nk utrac avt
+45000,BTLWGNCEHPUDSXZJYIFVMRKQOA,665.5816580894559,0.3050847457627119,ile hunced im pove ile kuogedne hur egedtilous on vmdit icm
+50000,VFERGUYDZQNCBWSOTMXHPJLAIK,758.3520669533025,0.6610169491525424,the crswen to vide the frilense cry elenathirb is donta two
+55000,EORIGJFDZNYPTMSKQWXHUCLAVB,876.8171354906688,0.9491525423728814,the answer to fice the universe and everything is corty two
+60000,ETAIGNFDZYPRJMSKOWXHUCLQVB,872.9061958295391,0.9491525423728814,the answer to mile the universe and everything is lorty two
+65000,ZYRFGJIDEBOKTMSQAWXHUCLNVP,871.4520859895338,0.8135593220338984,the inswer to face the unaverse ing everythand as corty two
+69078,ZYJFGQIDENOPRMSBKWXHUCLTVA,873.2533657213193,0.8135593220338984,the inswer to came the unaverse ing everythand as morty two
+message: the answer to life the universe and everything is forty two
+time taken: 6.844642162322998
+n_gram: 4
+Iteration, Key, Score, Accuracy, Plain Text
+0,UJCQKZHGIFBDTSEMRALWOXPVYN,5.545177444479562,0.1694915254237288,quj pfrojn qv zlgj quj xflwjnrj pfm jwjndqulfk lr gvnqd qov
+5000,HPCTMEGVODLZUXWRQBJFNKAYIS,112.57290793310169,0.1864406779661017,pit elwftz pn ujat pit hljbtzwt eld tbtzqpijlr jw anzpq pfn
+10000,NEBQZDXLGYCPVSAKIHUFROJTMW,106.71188097317975,0.1694915254237288,uvt yeobtn ug afrt uvt mefltnot yex tltnduvfec fo rgnud ubg
+15000,IFYDOMNBLHZRVQCEJXUPSWKTAG,12.94778139270455,0.1694915254237288,leb fkypbu lr gdjb leb mkdtbuyb fkx btbunledkh dy jruln lpr
+20000,JROPIKTBYHZCQUXGFNDSWLMEVA,12.445152536142738,0.22033898305084745,bcq wkzxqt bo rsjq bcq yksdqtzq wkg qdqtmbcskh sz jotbm bxo
+25000,JINDPQLEYKGWBASXCRVFUZTMHO,71.28800339083251,0.1694915254237288,rzt xvnhto rp cdyt rzt svdetont xvw tetofrzdvm dn yporf rhp
+30000,MWJQFTDECVLKUZGOSXYANBRPHI,124.91232792670384,0.4067796610169492,wpe antheq wr ugye wpe jngxeqte anf exeqdwpgnv gt yrqwd whr
+35000,OIDUGNRCZAPBYTJVKFWXMHLSQE,104.73938776710258,0.2033898305084746,gar uijzrx gt fcvr gar pickrxjr uin rkrxygacil cj vtxgy gzt
+40000,WIFYSNZVHKEDUGRLCAQXBTJPOM,112.10958787585385,0.1694915254237288,oyc zgrkce ot flic oyc hglxcerc zgv cxcesoylgu lr iteos okt
+45000,ZTVNFCEODGIBHAXKWSMRJPULQY,578.0888047612183,0.711864406779661,the sanger to dime the caiverne sab everythial in morty tgo
+50000,ZVLEFJIODGNBHAXMKSTRUPYCQW,589.1227128929254,0.711864406779661,the pander to kime the baiverne pas everythial in morty tdo
+55000,ZJENFHUODCGBMTXYKSARWPVIQL,622.8963948071442,0.7966101694915254,the mascer to dife the waiverse man everythial is forty tco
+60000,ZCUTFHJODLWNMBXVISARKPEGQY,636.3042163133737,0.864406779661017,the maswer to life the paiverse mad everythian is forty two
+65000,ZKETFHIODCLNMBXGJSARYPVWQU,632.5222995955274,0.8305084745762712,the mascer to life the waiverse mad everythian is forty tco
+69078,ZKLTFHYODCJNMBXVGSARWPEIQU,636.3042163133737,0.864406779661017,the maswer to life the paiverse mad everythian is forty two
