@@ -65,22 +65,22 @@ The following are the results of the project:
 1. The following is the result of running the project with different *n_grams* for input file *test1.txt*, and no key provided:
 * Given plain text: *it is not easy to define this hogarthian quality in words beyond saying that it is a sort of alphabetical realism like the cruel candour of children but it has about it these two special principles which separate it from all that we call realism in our time first that with us a moral story means a story about moral people with them a moral story meant more often a story about immoral people second that with us realism is always associated with some subtle view of morals with them realism was always associated with some simple view of morals the end of bill sikes exactly in the way that the law would have killed him this is a hogarthian incident it carries on that tradition of startling and shocking platitude*
 * Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output1.png)
+![Accuracy for Different n_grams](output_files/output1_accuracy.png)
 
 2. The following is the result of running the project with different *n_grams* for input file *test2.txt*, and no key provided:
 * Given plain text: *the answer to life the universe and everything is forty two*
 * Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output2.png)
+![Accuracy for Different n_grams](output_files/output2_accuracy.png)
 
 3. The following is the result of running the project with different *n_grams* for input file *test3.txt*, and no key provided:
 * Given plain text: *ukraines foreign minister rallied other countries to demand russia stop its hunger games after moscow backed out of a united nations brokered grain export deal saturday*
 * Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output3.png)
+![Accuracy for Different n_grams](output_files/output3_accuracy.png)
 
 4. The following is the result of running the project with different *n_grams* for input file *test4.txt*, and no key provided:
 * Given plain text: *place is one of the most complex terms in geography.[17][18][19] in human geography, place is the synthesis of the coordinates on the earth's surface, the activity and use that occurs, has occurred, and will occur at the coordinates, and the meaning ascribed to the space by human individuals and groups.[18] this can be extraordinarily complex, as different spaces may have different uses at different times and mean different things to different people. in physical geography, a place includes all of the physical phenomena that occur in space, including the lithosphere, atmosphere, hydrosphere, and biosphere.[19] places do not exist in a vacuum and instead have complex spatial relationships with each other, and place is concerned how a location is situated in relation to all other locations.[3][4] as a discipline then, the term place in geography includes all spatial phenomena occurring at a location, the diverse uses and meanings humans ascribe to that location, and how that location impacts and is impacted by all other locations on earth.[18][19]*
 * Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output4.png)
+![Accuracy for Different n_grams](output_files/output4_accuracy.png)
 
 
 
