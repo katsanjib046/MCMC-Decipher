@@ -90,44 +90,56 @@ class TranspositionCipher:
     Also called as columnar transposition cipher.
     """
     def __init__(self, key):
-        """Initializes TranspositionCipher with a key."""
+        """Initializes TranspositionCipher with a key. The key is a permutation."""
         self._key = key
+        self._keyLen = len(key)
 
     def encrypt(self, message):
-        """Encrypts a message using the key."""
-        return self._transform(message, self._key)
+        """Encrypts the message using the key."""
+        cipherText = [''] * self._keyLen
+        for col in range(self._keyLen):
+            pointer = col
+            while pointer < len(message):
+                cipherText[col] += message[pointer]
+                pointer += self._keyLen
+        # reorder the cipher text according to the key
+        print(cipherText)
+        cipherDraft = [cipherText[self._key.index(i)] for i in sorted(self._key)]
+        print(cipherDraft)
+        return ''.join(cipherDraft)
 
     def decrypt(self, message):
-        """Decrypts a message using the key."""
-        key = int(len(message) / self._key)
-        return self._transform(message, key, encrypt = False)
+        """Decrypts the message using the key."""
+        # calculate the number of rows in the draft
+        numRows = self._keyLen
+        # calculate the number of columns in the draft
+        numCols = (len(message) // numRows)
+        # split the message into rows
+        rowList = [''] * numRows
+        for row in range(numRows):
+            rowList[row] = message[row*numCols:(row+1)*numCols]
+        
+        # reorder the columns according to the key
+        print(rowList)
+        plainDraft = [''] * numRows
+        for i,item in enumerate(sorted(self._key)):
+            plainDraft[self._key.index(item)] = rowList[i]
+        print(plainDraft)
+        # get back the message from the draft
+        plainText = ''
+        for col in range(numCols):
+            for row in range(numRows):
+                if col < len(plainDraft[row]):
+                    plainText += plainDraft[row][col]
+        return plainText
 
-    def _transform(self, message, key, encrypt = True):
-        """Given a message and a key, encrypts or decrypts the message."""
-        msg = list(message)
-        if encrypt:
-            numCols = int(len(msg) / key) + 1
-            numRows = key
-            numShaded = (numCols * numRows) - len(msg)
-            msg.extend([' '] * numShaded)
-        else:
-            numRows = key
-            numCols = int(len(msg) / key) 
-        grid = []
-        for i in range(numRows):
-            grid.append(msg[i * numCols : (i + 1) * numCols])
-        cipher = []
-        for i in range(numCols):
-            for j in range(numRows):
-                cipher.append(grid[j][i])
-        cipher_text = ''.join(cipher)
-        if not encrypt:
-            cipher_text = cipher_text.strip()
-        return cipher_text
+                
+
+        
 
 ################ Testing ##################
 if __name__ == "__main__":
-    cipher = TranspositionCipher(3)
-    message = "THE WORLD IS BEAUTIFUL AND IT IS A PLEASURE TO LIVE IN IT"
+    cipher = TranspositionCipher('CIPHER')
+    message = "THIS IS WIKIPEDIA AND THIS IS A TEST"
     
 
