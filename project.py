@@ -26,24 +26,27 @@ import cipher
 LETTERS = string.ascii_lowercase + ' '
 
 
-def main():
+def main(argv=None):
     """
     Main function.
     Gets the input from the user and calls the required functions.
     The final output are written to a file.
     """
+    if argv is None:
+        argv = sys.argv
+    
     # check the number of arguments
-    if len(sys.argv) != 4 and len(sys.argv) != 5:
+    if len(argv) != 4 and len(argv) != 5:
         print("Usage: python project.py <n_gram> <plain_text_file> <output_file> (optional:<key>)")
         sys.exit(1)
     try:
-        n_gram = int(sys.argv[1])
-        message_file = os.path.join('test_files', sys.argv[2])
-        output_file = os.path.join('output_files', sys.argv[3])
-        if len(sys.argv) == 5:
+        n_gram = int(argv[1])
+        message_file = os.path.join('test_files', argv[2])
+        output_file = os.path.join('output_files', argv[3])
+        if len(argv) == 5:
              # Get the key, if any
             try:
-                key = sys.argv[4]
+                key = argv[4]
                 if  len(key) == 1 or len(key) == 2:
                     try:
                         key = int(key)
@@ -84,7 +87,7 @@ def main():
     # Print the time taken
     time_taken = end_time - start_time
     write_output(message, info, output_file, time_taken, n_gram)
-    plot_score(info, output_file)
+    plot_score(info, output_file, n_gram)
     print('Your request has been processed. Please check the output file.')
     
     
@@ -289,9 +292,18 @@ def mcmc(cipher_text, message, n_gram=2):
     # get the plain text
     plain_text = decrypt(cipher_text, key)
 
+
     # get the score
     score = get_score(plain_text, countMatrix, n_gram=n_gram)
     info[count] = {'iteration': count, 'key': key, 'score': score, 'plain_text': plain_text, 'accuracy': accuracy(plain_text, message)}
+
+    # keep the best
+    best = {
+        'key': key,
+        'plain_text': plain_text,
+        'score': score,
+        'accuracy': accuracy(plain_text, message)
+    }
 
     # loop until the temperature is less than the minimum temperature
     while T > Tmin:
@@ -312,6 +324,11 @@ def mcmc(cipher_text, message, n_gram=2):
             key = new_key
             plain_text = new_plain_text
             score = new_score
+            if score > best['score']:
+                best['key'] = key
+                best['plain_text'] = plain_text
+                best['score'] = score
+                best['accuracy'] = accuracy(plain_text, message)   
         else:
             prob = np.exp(diff / T)
             if random.random() < prob:
@@ -332,13 +349,15 @@ def mcmc(cipher_text, message, n_gram=2):
                 'key': key, 
                 'score': score, 
                 'plain_text': plain_text, 
-                'accuracy': accuracy(plain_text, message)}
+                'accuracy': accuracy(plain_text, message),
+                }
+    info['best'] = best
 
     # return the plain text
     return info
 
 
-def plot_score(info, file_name):
+def plot_score(info, file_name,n_gram=2):
     """
     Function: To plot the score list.
     Input:
@@ -349,12 +368,16 @@ def plot_score(info, file_name):
     # get the file name before the extension
     file_name = file_name.split('.')[0]
     # Get the score list
-    score_list = [info[i]['score'] for i in info]
+    # score_list = [info[i]['score'] for i in info]
+    # get the accuracy list
+    accuracy_list = [info[i]['accuracy'] for i in info]
     # Plot the score list
-    plt.plot(score_list)
+    plt.plot(accuracy_list, label='n_gram={}'.format(n_gram))
     plt.xlabel('Iteration (*5000)')
-    plt.ylabel('Score')
-    plt.savefig(file_name + '_score.png')
+    plt.ylabel('Accuracy')
+    plt.title('Accuracy Vs Iteration for different n_grams')
+    plt.legend()
+    plt.savefig(file_name + '_accuracy.png')
 
 
 
@@ -393,17 +416,23 @@ def write_output(message, info, file_name, time_taken, n_gram):
         f.write('time taken: ' + str(time_taken) + '\n')
         f.write('n_gram: ' + str(n_gram) + '\n')
         f.write('Iteration, Key, Score, Accuracy, Plain Text')
-        for keys in info.keys():
+        for keys in list(info.keys())[:-1]:
             f.write('\n')
             f.write(str(info[keys]['iteration']) + ',')
             f.write(info[keys]['key'] + ',')
             f.write(str(info[keys]['score']) + ',')
             f.write(str(info[keys]['accuracy'])+ ',')
             f.write(info[keys]['plain_text'])
-        f.write('\n')
+        f.write('\n\n')
+        f.write('Best Key: ' + info['best']['key'] + '\n')
+        f.write('Best Score: ' + str(info['best']['score']) + '\n')
+        f.write('Best Accuracy: ' + str(info['best']['accuracy']) + '\n')
+        f.write('Best Plain Text: ' + info['best']['plain_text'])
+        f.write('\n\n\n')
 
 
 # ------------------ Testing and Running ------------------
 if __name__ == '__main__':
-    main()
+    for i in range(1, 6):
+        main(argv=['project.py', str(i), 'test4.txt', 'output4.txt'])
 
