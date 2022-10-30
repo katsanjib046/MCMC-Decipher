@@ -1,0 +1,16 @@
+plain_text,length,n_gram,average_time,average_accuracy,num_success,runs
+the answer to life the universe and everything is forty two,59,1,6.404399967193603,0.376271186440678,0,10
+the answer to life the universe and everything is forty two,59,2,10.471100544929504,0.5152542372881357,0,10
+the answer to life the universe and everything is forty two,59,3,10.068665647506714,0.6,0,10
+the answer to life the universe and everything is forty two,59,4,9.220139336585998,0.8440677966101695,6,10
+the answer to life the universe and everything is forty two,59,5,8.502322840690614,0.7254237288135592,3,10
+it is not easy to define this hogarthian quality in words be...,717,1,32.91035742759705,0.23556485355648532,0,10
+it is not easy to define this hogarthian quality in words be...,717,2,58.8533376455307,1.0,10,10
+it is not easy to define this hogarthian quality in words be...,717,3,89.67383546829224,1.0,10,10
+it is not easy to define this hogarthian quality in words be...,717,4,80.0792814731598,1.0,10,10
+it is not easy to define this hogarthian quality in words be...,717,5,74.52539105415345,1.0,10,10
+ukraines foreign minister rallied other countries to demand ...,168,1,12.284984827041626,0.3011904761904762,0,10
+ukraines foreign minister rallied other countries to demand ...,168,2,24.695639204978942,0.9011904761904763,0,10
+ukraines foreign minister rallied other countries to demand ...,168,3,23.92852919101715,1.0,10,10
+ukraines foreign minister rallied other countries to demand ...,168,4,20.193536591529845,1.0,10,10
+ukraines foreign minister rallied other countries to demand ...,168,5,17.114435839653016,1.0,10,10

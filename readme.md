@@ -4,7 +4,7 @@
 
 
 ## Abstract
-*We examine the use of Markov Chain Monte Carlo (MCMC) algorithm to break subsitution ciphers. We use MCMC to sample keys from possible decryption keys. We employ n-gram frequency analysis to evaluate the quality of the sampled keys. We use simulated annealing to enhance the performance of algorithm. The accuracy of the algorithm is almost 100% for the cipher text with length of 1000 or more characters. For shorter cipher text, the accuracy depends on the length of the n-gram used in the n-gram frequency analysis.*
+*We examine the use of Markov Chain Monte Carlo (MCMC) algorithm to break subsitution ciphers. We use MCMC to sample keys from possible decryption keys. We employ n-gram frequency analysis to evaluate the quality of the sampled keys. We use simulated annealing to enhance the performance of algorithm. The accuracy of the algorithm is almost 100% for the cipher text with length of 500 or more characters. For shorter cipher text, the accuracy depends on the length of the n-gram used in the n-gram frequency analysis.*
 ## Introduction
 Markov Chain Monte Carlo are popular methods of sampling from a complicated probability distributions. Its use in cryptography is not new. This approach was first introduced by Marc Coram and Phil Beinke, and later studied more systematically by Connor. In this project, we implement these techniques using Python. We first introduce subsitution ciphers, and then describe the MCMC algorithm. We then describe the n-gram frequency analysis, and finally we describe the simulated annealing algorithm. We then present the results of our experiments.
 
@@ -44,6 +44,7 @@ The project is structured as follows:
 * *output_files*: This folder contains the output files.
 * *.gitignore*: This file contains the files that should be ignored by git.
 * *test_project.py*: This file contains the unit tests for the project.
+* *multiple_runs.py*: This file contains the code to run the algorithm multiple times. It is used to generate the results in the table below.
 
 ## How to Run the Project
 The project is written in Python 3. To run the project, you need to have Python 3 installed. You also need to install the dependencies. To install the dependencies, run the following command:
@@ -81,6 +82,35 @@ The following are the results of the project:
 * Given plain text: *place is one of the most complex terms in geography.[17][18][19] in human geography, place is the synthesis of the coordinates on the earth's surface, the activity and use that occurs, has occurred, and will occur at the coordinates, and the meaning ascribed to the space by human individuals and groups.[18] this can be extraordinarily complex, as different spaces may have different uses at different times and mean different things to different people. in physical geography, a place includes all of the physical phenomena that occur in space, including the lithosphere, atmosphere, hydrosphere, and biosphere.[19] places do not exist in a vacuum and instead have complex spatial relationships with each other, and place is concerned how a location is situated in relation to all other locations.[3][4] as a discipline then, the term place in geography includes all spatial phenomena occurring at a location, the diverse uses and meanings humans ascribe to that location, and how that location impacts and is impacted by all other locations on earth.[18][19]*
 * Accuracy Vs Iterations for different n-grams:
 ![Accuracy for Different n_grams](output_files/output4_accuracy.png)
+
+#### Multiple Runs
+The above the a representative of how the results look like. However, we don't want to rely too much on a single run as we might have just got lucky. So, next we will run the project multiple times and see how the results look like. We will run each test file for 10 times and give the result for how many of the runs were successful. A successful run is one where the accuracy is 100%. The following are the results:
+
+|Plain Text |Text Length|n_gram used|Average time(sec)|Average accuracy|Success|Total Runs|
+|:------------------:|:----:|:----:|:----:|:------:|:--------:|:---------:|
+|the answer to life the universe and everything is forty two|59|1|6.4|0.37|0|10
+|||2|10.4|0.51|0|10
+|||3|10.0|0.6|0|10
+|||4|9.2|0.84|6|10
+|||5|8.5|0.72|3|10
+|ukraines foreign minister rallied other countries to demand ...|168|1|12.2|0.30|0|10
+||168|2|24.6|0.90|0|10
+||168|3|23.9|1.0|10|10
+||168|4|20.1|1.0|10|10
+||168|5|17.1|1.0|10|10
+|it is not easy to define this hogarthian quality in words be...|717|1|32.9|0.23|0|10
+|||2|58.8|1.0|10|10
+|||3|89.6|1.0|10|10
+|||4|80.0|1.0|10|10
+|||5|74.5|1.0|10|10
+
+## Conclusion
+We can deduce the following from the results:
+1. The accuracy of the program is dependent on the length of the plain text. The longer the plain text, the more accurate the program is.
+2. The time taken by the program is dependent on the length of the plain text. The longer the plain text, the more time the program takes.
+3. The time taken by the program is dependent on the *n_gram* used. The higher the *n_gram*, the more time the program takes.
+
+
 
 
 

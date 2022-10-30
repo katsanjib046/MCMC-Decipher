@@ -26,7 +26,7 @@ import cipher
 LETTERS = string.ascii_lowercase + ' '
 
 
-def main(argv=None):
+def main(argv=None, multiple=False):
     """
     Main function.
     Gets the input from the user and calls the required functions.
@@ -86,8 +86,13 @@ def main(argv=None):
 
     # Print the time taken
     time_taken = end_time - start_time
-    write_output(message, info, output_file, time_taken, n_gram)
-    plot_score(info, output_file, n_gram)
+    
+    # return the info if multiple is true
+    if multiple:
+        return info, time_taken
+    else:
+        write_output(message, info, output_file, time_taken, n_gram)
+        plot_score(info, output_file, n_gram)
     print('Your request has been processed. Please check the output file.')
     
     
@@ -377,7 +382,7 @@ def plot_score(info, file_name,n_gram=2):
     plt.ylabel('Accuracy')
     plt.title('Accuracy Vs Iteration for different n_grams')
     plt.legend()
-    plt.savefig(file_name + '_accuracy.png')
+    plt.savefig(file_name + '_accuracy_ex.png')
 
 
 
@@ -428,11 +433,11 @@ def write_output(message, info, file_name, time_taken, n_gram):
         f.write('Best Score: ' + str(info['best']['score']) + '\n')
         f.write('Best Accuracy: ' + str(info['best']['accuracy']) + '\n')
         f.write('Best Plain Text: ' + info['best']['plain_text'])
-        f.write('\n\n\n')
+        f.write('\n\n\n')   
 
 
 # ------------------ Testing and Running ------------------
 if __name__ == '__main__':
     for i in range(1, 6):
-        main(argv=['project.py', str(i), 'test4.txt', 'output4.txt'])
+        main(argv=['project.py', str(i), 'test2.txt', 'output2ex.txt'])
 
