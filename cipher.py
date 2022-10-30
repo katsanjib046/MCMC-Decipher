@@ -83,51 +83,8 @@ class RandomCipher(SubstitutionCipher):
         return ''.join(code)
 
 
-############### Transposition Cipher ###############
-class TranspositionCipher:
-    """
-    Defines a class for Transposition Cipher, which takes a key to encrypt and decrypt messages.
-    Also called as columnar transposition cipher.
-    """
-    def __init__(self, key):
-        """Initializes TranspositionCipher with a key."""
-        self._key = key
-
-    def encrypt(self, message):
-        """Encrypts a message using the key."""
-        return self._transform(message, self._key)
-
-    def decrypt(self, message):
-        """Decrypts a message using the key."""
-        key = int(len(message) / self._key)
-        return self._transform(message, key, encrypt = False)
-
-    def _transform(self, message, key, encrypt = True):
-        """Given a message and a key, encrypts or decrypts the message."""
-        msg = list(message)
-        if encrypt:
-            numCols = int(len(msg) / key) + 1
-            numRows = key
-            numShaded = (numCols * numRows) - len(msg)
-            msg.extend([' '] * numShaded)
-        else:
-            numRows = key
-            numCols = int(len(msg) / key) 
-        grid = []
-        for i in range(numRows):
-            grid.append(msg[i * numCols : (i + 1) * numCols])
-        cipher = []
-        for i in range(numCols):
-            for j in range(numRows):
-                cipher.append(grid[j][i])
-        cipher_text = ''.join(cipher)
-        if not encrypt:
-            cipher_text = cipher_text.strip()
-        return cipher_text
-
 ################ Testing ##################
 if __name__ == "__main__":
-    cipher = TranspositionCipher(3)
-    message = "THE WORLD IS BEAUTIFUL AND IT IS A PLEASURE TO LIVE IN IT"
+    pass
     
 
