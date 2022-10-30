@@ -11,27 +11,27 @@ import project
 import cipher
 import string
 import numpy as np
-
-
-def test_count_and_prob_matrix():
-    """
-    Test count matrix function.
-    """
-    count_matrix = project.count_matrix(file='wp.txt')
-    prob_matrix = project.probability_matrix(count_matrix)
-    assert count_matrix.shape == (27, 27)
-    assert prob_matrix.shape == (27, 27)
-    # probability for each row must sum to 1
-    for i in range(27):
-        assert 0.99999 < prob_matrix[0,:].sum() <= 1
-
-def test_count_matrix_trigram():
-    """
-    Test for count_matrix_trigram function.
-    """
-    count_matrix = project.count_matrix_trigram(file='wp.txt')
-    assert count_matrix.shape == (27, 27, 27)
     
+def test_chunker():
+    """
+    Test for chunker function.
+    """
+    assert project.chunker('hello', 2) == ['he', 'el', 'll', 'lo']
+    assert project.chunker('hello', 3) == ['hel', 'ell', 'llo']
+    assert project.chunker('hello', 4) == ['hell', 'ello']
+    assert project.chunker('world', 5) == ['world']
+    assert project.chunker('hello', 6) == []
+    assert project.chunker('', 2) == []
+
+
+def test_count_matrix():
+    """
+    Test for count matrix
+    """
+    assert project.count_matrix(text='hello', n_gram=1) == {'h': 1, 'e': 1, 'l': 2, 'o': 1}
+    assert project.count_matrix(text='hello', n_gram=2) == {'he': 1, 'el': 1, 'll': 1, 'lo': 1}
+    assert project.count_matrix(text='this is a test', n_gram=1) == {'t':3, 'h':1, 'i':2, 's':3, 'a':1, 'e':1, ' ':3}
+
 
 def test_random_key():
     """

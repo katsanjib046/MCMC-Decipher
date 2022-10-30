@@ -29,6 +29,8 @@ LETTERS = string.ascii_lowercase + ' '
 def main():
     """
     Main function.
+    Gets the input from the user and calls the required functions.
+    The final output are written to a file.
     """
     # check the number of arguments
     if len(sys.argv) != 4 and len(sys.argv) != 5:
@@ -95,7 +97,7 @@ def chunker(seq, size):
     Output:
         chunk -- Chunk
     """
-    return [''.join(seq[pos:pos + size]) for pos in range(0, len(seq)-size)]
+    return [''.join(seq[pos:pos + size]) for pos in range(0, len(seq)-size+1)]
 
 
 def count_matrix(file=None, text=None, n_gram=2):
@@ -104,8 +106,10 @@ def count_matrix(file=None, text=None, n_gram=2):
         To count the number of times a letter is followed by another letter in a given text file.
     Input:
         file -- Text file
+        text -- Text
+        n_gram -- n_gram
     Output: 
-        count_matrix -- Count matrix
+        count_dict -- Count dictionary
     """
     # letters, alphabet, and space
     letters = LETTERS
