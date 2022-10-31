@@ -1,14 +1,5 @@
 # Decrypting Cipher with Markov Chain Monte Carlo
 
-#### By Sanjib Katuwal
-Gainesville, FL
-USA
-Graduate Student
-University of Florida
-
-#### [Video Demo](https://youtu.be/TbQApJfOfdk)
-
-
 ## Abstract
 *We examine the use of Markov Chain Monte Carlo (MCMC) algorithm to break subsitution ciphers. We use MCMC to sample keys from possible decryption keys. We employ n-gram frequency analysis to evaluate the quality of the sampled keys. We use simulated annealing to enhance the performance of algorithm. The accuracy of the algorithm is almost 100% for the cipher text with length of 500 or more characters. For shorter cipher text, the accuracy depends on the length of the n-gram used in the n-gram frequency analysis.*
 ## Introduction
