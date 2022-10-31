@@ -64,24 +64,23 @@ To run the unit tests, run the following command:
 ## Results
 The following are the results of the project:
 1. The following is the result of running the project with different *n_grams* for input file *test1.txt*, and no key provided:
-* Given plain text: *it is not easy to define this hogarthian quality in words beyond saying that it is a sort of alphabetical realism like the cruel candour of children but it has about it these two special principles which separate it from all that we call realism in our time first that with us a moral story means a story about moral people with them a moral story meant more often a story about immoral people second that with us realism is always associated with some subtle view of morals with them realism was always associated with some simple view of morals the end of bill sikes exactly in the way that the law would have killed him this is a hogarthian incident it carries on that tradition of startling and shocking platitude*
-* Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output1_accuracy.png)
+   * Given plain text: *it is not easy to define this hogarthian quality in words beyond saying that it is a sort of alphabetical realism like the cruel candour of children but it has about it these two special principles which separate it from all that we call realism in our time first that with us a moral story means a story about moral people with them a moral story meant more often a story about immoral people second that with us realism is always associated with some subtle view of morals with them realism was always associated with some simple view of morals the end of bill sikes exactly in the way that the law would have killed him this is a hogarthian incident it carries on that tradition of startling and shocking platitude*
+   * Encrypted text: *ki kr zyi jcrn iy qjbkzj iskr syucwiskcz aocfkin kz dywqr pjnyzq rcnkzu isci ki kr c rywi yb cflscpjikhcf wjcfkrg fkxj isj hwojf hczqyow yb hskfqwjz poi ki scr cpyoi ki isjrj idy rljhkcf lwkzhklfjr dskhs rjlcwcij ki bwyg cff isci dj hcff wjcfkrg kz yow ikgj bkwri isci dkis or c gywcf riywn gjczr c riywn cpyoi gywcf ljylfj dkis isjg c gywcf riywn gjczi gywj ybijz c riywn cpyoi kggywcf ljylfj rjhyzq isci dkis or wjcfkrg kr cfdcnr crryhkcijq dkis rygj ropifj tkjd yb gywcfr dkis isjg wjcfkrg dcr cfdcnr crryhkcijq dkis rygj rkglfj tkjd yb gywcfr isj jzq yb pkff rkxjr jmchifn kz isj dcn isci isj fcd dyofq sctj xkffjq skg iskr kr c syucwiskcz kzhkqjzi ki hcwwkjr yz isci iwcqkikyz yb ricwifkzu czq rsyhxkzu lfcikioqj*
+   * Accuracy Vs Iterations for different n-grams:
+    ![Accuracy for Different n_grams](output_files/output1_accuracy.png)
 
 2. The following is the result of running the project with different *n_grams* for input file *test2.txt*, and no key provided:
-* Given plain text: *the answer to life the universe and everything is forty two*
-* Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output2_accuracy.png)
+   * Given plain text: *the answer to life the universe and everything is forty two*
+   * Encrypted text: *isj czrdjw iy fkbj isj ozktjwrj czq jtjwniskzu kr bywin idy*
+   * Accuracy Vs Iterations for different n-grams:
+   ![Accuracy for Different n_grams](output_files/output2_accuracy.png)
 
 3. The following is the result of running the project with different *n_grams* for input file *test3.txt*, and no key provided:
-* Given plain text: *ukraines foreign minister rallied other countries to demand russia stop its hunger games after moscow backed out of a united nations brokered grain export deal saturday*
-* Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output3_accuracy.png)
+   * Given plain text: *ukraines foreign minister rallied other countries to demand russia stop its hunger games after moscow backed out of a united nations brokered grain export deal saturday*
+   * Encrypted text: *oxwckzjr bywjkuz gkzkrijw wcffkjq yisjw hyoziwkjr iy qjgczq worrkc riyl kir sozujw ucgjr cbijw gyrhyd pchxjq yoi yb c ozkijq zcikyzr pwyxjwjq uwckz jmlywi qjcf rciowqcn*
+   * Accuracy Vs Iterations for different n-grams:
+   ![Accuracy for Different n_grams](output_files/output3_accuracy.png)
 
-4. The following is the result of running the project with different *n_grams* for input file *test4.txt*, and no key provided:
-* Given plain text: *place is one of the most complex terms in geography.[17][18][19] in human geography, place is the synthesis of the coordinates on the earth's surface, the activity and use that occurs, has occurred, and will occur at the coordinates, and the meaning ascribed to the space by human individuals and groups.[18] this can be extraordinarily complex, as different spaces may have different uses at different times and mean different things to different people. in physical geography, a place includes all of the physical phenomena that occur in space, including the lithosphere, atmosphere, hydrosphere, and biosphere.[19] places do not exist in a vacuum and instead have complex spatial relationships with each other, and place is concerned how a location is situated in relation to all other locations.[3][4] as a discipline then, the term place in geography includes all spatial phenomena occurring at a location, the diverse uses and meanings humans ascribe to that location, and how that location impacts and is impacted by all other locations on earth.[18][19]*
-* Accuracy Vs Iterations for different n-grams:
-![Accuracy for Different n_grams](output_files/output4_accuracy.png)
 
 #### Multiple Runs
 The above the a representative of how the results look like. However, we don't want to rely too much on a single run as we might have just got lucky. So, next we will run the project multiple times and see how the results look like. We will run each test file for 10 times and give the result for how many of the runs were successful. A successful run is one where the accuracy is 100%. The following are the results:
@@ -109,9 +108,6 @@ We can deduce the following from the results:
 1. The accuracy of the program is dependent on the length of the plain text. The longer the plain text, the more accurate the program is.
 2. The time taken by the program is dependent on the length of the plain text. The longer the plain text, the more time the program takes.
 3. The time taken by the program is dependent on the *n_gram* used. The higher the *n_gram*, the more time the program takes.
-
-
-
 
 
 ## References
