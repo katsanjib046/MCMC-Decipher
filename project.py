@@ -382,7 +382,7 @@ def plot_score(info, file_name,n_gram=2):
     plt.ylabel('Accuracy')
     plt.title('Accuracy Vs Iteration for different n_grams')
     plt.legend()
-    plt.savefig(file_name + '_accuracy_ex.png')
+    plt.savefig(file_name + '_accuracy.png')
 
 
 
@@ -437,7 +437,6 @@ def write_output(message, info, file_name, time_taken, n_gram):
 
 
 # ------------------ Testing and Running ------------------
-if __name__ == '__main__':
-    for i in range(1, 6):
-        main(argv=['project.py', str(i), 'test2.txt', 'output2ex.txt'])
+if __name__ == "__main__":
+    main()
 
