@@ -7,6 +7,13 @@ Contains functions:
     - count_matrix
     - probability_matrix
     - random_key
+    - encrypt
+    - mcmc
+    - write_output
+    - plot_score
+    - chunker
+    - get_score
+    - decrypt
 """
 
 # Importing external libraries
