@@ -1,5 +1,11 @@
 # Decrypting Cipher with Markov Chain Monte Carlo
 
+#### By Sanjib Katuwal
+Gainesville, FL
+USA
+Graduate Student
+University of Florida
+
 #### Video Demo:
 
 
